@@ -1,4 +1,5 @@
 class ShipPlacer
+  attr_reader :messages
   def initialize(board:, ship:, start_space:, end_space:)
     @board       = board
     @ship        = ship
@@ -32,14 +33,14 @@ class ShipPlacer
     row = start_space[0]
     range = start_space[1]..end_space[1]
     msg = "Ship size must be equal to the number of spaces you are trying to fill."
-    raise InvalidShipPlacement unless range.count == ship.length
+    raise InvalidShipPlacement unless range.count == ship.length.to_i
     range.each { |column| place_ship(row, column) }
   end
 
   def place_in_column
     column = start_space[1]
     range   = start_space[0]..end_space[0]
-    raise InvalidShipPlacement unless range.count == ship.length
+    raise InvalidShipPlacement unless range.count == ship.length.to_i
     range.each { |row| place_ship(row, column) }
   end
 

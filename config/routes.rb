@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get "/activate", to: "activation#new"
   get "/activate-success", as: "activate_success", to: "activation#show"
 
+
   namespace :api do
     namespace :v1 do
+      post "/games/:id/ships", to: "games/ships#create"
       post "/games", to: "games#create"
       resources :games, only: [:show, :index] do
         post "/shots", to: "games/shots#create"

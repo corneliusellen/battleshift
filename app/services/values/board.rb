@@ -55,10 +55,10 @@ class Board
     return get_column_spaces_between(coordinate1, coordinate2) if same_column?(coordinate1, coordinate2)
   end
 
-  # def get_row_spaces_between(coordinate1, coordinate2)
-  #   columns = (get_smaller_column(coordinate1, coordinate2)..get_bigger_column(coordinate1, coordinate2)).to_a
-  #   columns.map { |column| get_row(coordinate1) + column }
-  # end
+  def get_row_spaces_between(coordinate1, coordinate2)
+    columns = (get_smaller_column(coordinate1, coordinate2)..get_bigger_column(coordinate1, coordinate2)).to_a
+    columns.map { |column| get_row(coordinate1) + column }
+  end
 
   def get_column_spaces_between(coordinate1, coordinate2)
     rows = (get_smaller_row(coordinate1, coordinate2)..get_bigger_row(coordinate1, coordinate2)).to_a
@@ -203,4 +203,3 @@ class Board
     get_column(coordinate) == "1"
   end
 end
-

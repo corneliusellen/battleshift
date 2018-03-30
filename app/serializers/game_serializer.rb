@@ -11,6 +11,6 @@ class GameSerializer < ActiveModel::Serializer
   end
 
   def message
-    @instance_options[:message]
+    object.messages
   end
 end
