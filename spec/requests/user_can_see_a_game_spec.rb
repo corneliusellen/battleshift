@@ -3,6 +3,8 @@ require 'rails_helper'
 describe 'GET /api/v1/games/1' do
   context 'with an existing game' do
     it 'returns a game with boards' do
+      user_1 = create(:user)
+      user_2 = create(:user)
       player_1_board = Board.new(4)
       player_2_board = Board.new(4)
       sm_ship = Ship.new(2)
@@ -37,7 +39,9 @@ describe 'GET /api/v1/games/1' do
                       player_2_board: player_2_board,
                       player_1_turns: 0,
                       player_2_turns: 0,
-                      current_turn: "challenger"
+                      current_turn: "challenger",
+                      player_1_id: user_1.id,
+                      player_2_id: user_2.id
                     }
 
       game = Game.new(game_attributes)
@@ -62,9 +66,9 @@ describe 'GET /api/v1/games/1' do
 
   describe 'with no game' do
     it 'returns a 400' do
-      get "/api/v1/games/1"
+      get "/api/v1/games/2"
 
-      expect(response.status).to be(400)
+      expect(response.status).to eq(400)
     end
   end
 end

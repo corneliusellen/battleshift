@@ -1,8 +1,9 @@
 class Message
 
-  def initialize(game)
+  def initialize(game, player_board)
     @game = game
     @space_counter = 0
+    @player_board = player_board
   end
 
   def placing_ships_messages(ship_size)
@@ -25,7 +26,7 @@ class Message
   end
 
   def ship_counter
-    @game.player_1_board.board.each do |row|
+    @player_board.board.each do |row|
       row.each do |space|
         if space.values[0].contents != nil
           @space_counter += 1

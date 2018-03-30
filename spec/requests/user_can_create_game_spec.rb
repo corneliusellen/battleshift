@@ -21,9 +21,8 @@ describe "Api::V1::Games" do
       expect(@result[:player_1_turns]).to be_nil
       expect(@result[:player_2_turns]).to be_nil
       expect(start_fresh).to all(be == "Not Attacked")
-      expect(GamePlayer.last.game_id).to eq(Game.last.id)
-      expect(GamePlayer.last.player_1_id).to eq(user_1.id)
-      expect(GamePlayer.last.player_2_id).to eq(user_2.id)
+      expect(Game.last.player_1_id).to eq(user_1.id)
+      expect(Game.last.player_2_id).to eq(user_2.id)
     end
   end
 end

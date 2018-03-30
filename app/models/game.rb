@@ -1,8 +1,6 @@
 class Game < ApplicationRecord
-  has_many :game_players
-  has_many :users, through: :game_players
-  has_one :player_1, through: :game_players
-  has_one :player_2, through: :game_players
+  belongs_to :player_1, class_name: 'User'
+  belongs_to :player_2, class_name: 'User'
 
   enum current_turn: ["challenger", "opponent"]
   serialize :player_1_board

@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+describe User, type: :model do
   describe "relationships" do
-    it { is_expected.to have_many(:games).through(:game_players)}
+    it { is_expected.to have_many(:player_1s) }
+    it { is_expected.to have_many(:player_2s) }
   end
 
   it "is valid" do
