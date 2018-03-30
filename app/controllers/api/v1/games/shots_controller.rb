@@ -3,7 +3,7 @@ module Api
     module Games
       class ShotsController < ApiController
         def create
-          game = Game.find(params[:game_id])
+          game = current_game
 
           turn_processor = TurnProcessor.new(game, params[:shot][:target])
 
