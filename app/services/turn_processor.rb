@@ -8,7 +8,11 @@ class TurnProcessor
 
   def run!
     begin
-      attack_opponent
+      if @player == "challenger"
+        attack_opponent
+      elsif @player == "opponent"
+        attack_challenger
+      end
       game.save!
     rescue InvalidAttack => e
       @messages << e.message
@@ -28,6 +32,17 @@ class TurnProcessor
       result = Shooter.fire!(board: opponent, target: target)
       @messages << "Your shot resulted in a #{result}."
       game.player_1_turns += 1
+      switch_current_turn
+    else
+      raise InvalidAttack.new("Invalid move. It's your opponent's turn.")
+    end
+  end
+
+  def attack_challenger
+    if players_turn?
+      result = Shooter.fire!(board: challenger, target: target)
+      @messages << "Your shot resulted in a #{result}."
+      game.player_2_turns += 1
       switch_current_turn
     else
       raise InvalidAttack.new("Invalid move. It's your opponent's turn.")
@@ -56,7 +71,7 @@ class TurnProcessor
     game.player_2_turns += 1
   end
 
-  def player
+  def challenger
     @game.player_1_board
   end
 
