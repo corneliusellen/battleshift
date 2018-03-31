@@ -38,7 +38,7 @@ describe "Api::V1::Games" do
       result = JSON.parse(response.body)
 
       expect(response.status).to eq(400)
-      expect(result["game_messages"]).to include("Invalid coordinates.")
+      expect(result["message"]).to include("Invalid coordinates.")
     end
   end
 end

@@ -40,7 +40,7 @@ describe "Api::V1::Games" do
       expect(response).to be_success
       status_space = result["player_2_board"]["rows"][0]["data"].first["status"]
       expect(status_space).to eq("Hit")
-      expect(result["game_messages"]).to include("Your shot resulted in a Hit")
+      expect(result["message"]).to include("Your shot resulted in a Hit")
       expect(result[:winner]).to be_nil
     end
   end
