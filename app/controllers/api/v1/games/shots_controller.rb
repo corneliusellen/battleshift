@@ -8,7 +8,12 @@ module Api
           turn_processor = TurnProcessor.new(game, params[:shot][:target])
 
           turn_processor.run!
-          render json: game, game_messages: turn_processor.message
+
+          if turn_processor.message == "Invalid coordinates."
+            render json: {game_messages: turn_processor.message}, :status => 400
+          else
+            render json: game, game_messages: turn_processor.message
+          end
         end
       end
     end
