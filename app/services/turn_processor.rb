@@ -43,7 +43,7 @@ class TurnProcessor
     if players_turn?
       result = Shooter.fire!(board: challenger, target: target)
       @messages << "Your shot resulted in a #{result}."
-      @messages << "Battleship sunk." if sunk(@game.player_2_board)
+      @messages << "Battleship sunk." if sunk(@game.player_1_board)
       game.player_2_turns += 1
       switch_current_turn
     else
@@ -82,6 +82,10 @@ class TurnProcessor
   end
 
   def sunk(player_board)
-    player_board.locate_space(@target).contents.is_sunk?
+    if player_board.locate_space(@target).contents.nil?
+      false
+    else
+      player_board.locate_space(@target).contents.is_sunk?
+    end
   end
 end
