@@ -16,11 +16,7 @@ module Api
 
           @game.save
 
-          @game.update(current_turn: 0)
-
-          @game.update(messages: Message.new(current_game, @player_board).placing_ships_messages(ship_size.to_i))
-
-          render json: @game
+          render json: @game, message: shipplacer.message
         end
 
         private

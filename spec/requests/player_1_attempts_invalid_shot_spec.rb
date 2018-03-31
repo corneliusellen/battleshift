@@ -29,19 +29,16 @@ describe "Api::V1::Games" do
       post "/api/v1/games/#{Game.last.id}/ships", params: params_ship_2, :headers => headers
     end
 
-    it "player 1 fires first shot" do
+    it "player 1 fires shot on invalid space and receives error" do
       headers = { "X-API-KEY" => @user_1.api_key.api_key,
                   "CONTENT-TYPE" => "application/json" }
-      params_shot = {target: "A1"}.to_json
+      params_shot = {target: "Z9"}.to_json
       post "/api/v1/games/#{Game.last.id}/shots", params: params_shot, :headers => headers
 
       result = JSON.parse(response.body)
 
-      expect(response).to be_success
-      status_space = result["player_2_board"]["rows"][0]["data"].first["status"]
-      expect(status_space).to eq("Hit")
-      expect(result["message"]).to include("Your shot resulted in a Hit")
-      expect(result[:winner]).to be_nil
+      expect(response.status).to eq(400)
+      expect(result["message"]).to include("Invalid coordinates.")
     end
   end
 end
