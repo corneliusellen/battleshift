@@ -11,9 +11,9 @@ module Api
           turn_processor.run!
 
           if turn_processor.message == "Invalid coordinates."
-            render json: {message: turn_processor.message}, :status => 400
+            render json: game, message: turn_processor.message, :status => 400
           elsif turn_processor.message == "Invalid move. It's your opponent's turn."
-            render json: {message: turn_processor.message}, :status => 400
+            render json: game, message: turn_processor.message, :status => 400
           else
             render json: game, message: turn_processor.message
           end
