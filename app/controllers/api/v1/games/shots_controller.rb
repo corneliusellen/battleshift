@@ -4,15 +4,18 @@ module Api
       class ShotsController < ApiController
         def create
           game = current_game
+          player = current_player
 
-          turn_processor = TurnProcessor.new(game, params[:shot][:target])
+          turn_processor = TurnProcessor.new(game, params[:shot][:target], player)
 
           turn_processor.run!
 
           if turn_processor.message == "Invalid coordinates."
-            render json: {game_messages: turn_processor.message}, :status => 400
+            render json: {message: turn_processor.message}, :status => 400
+          elsif turn_processor.message == "Invalid move. It's your opponent's turn."
+            render json: {message: turn_processor.message}, :status => 400
           else
-            render json: game, game_messages: turn_processor.message
+            render json: game, message: turn_processor.message
           end
         end
       end
