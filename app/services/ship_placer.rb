@@ -19,7 +19,6 @@ class ShipPlacer
     end
     @messages << "Successfully placed ship with a size of #{@ship.length}."
     determine_ships_to_place
-    message
   end
 
   def message
