@@ -13,4 +13,14 @@ class ApiController < ActionController::API
       render status: 404
     end
   end
+
+  def current_board
+    if current_player == "challenger"
+      @current_game.player_1_board
+    elsif current_player == "opponent"
+      @current_game.player_2_board
+    else
+      render status: 400
+    end
+  end
 end
