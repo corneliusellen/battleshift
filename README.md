@@ -2,10 +2,18 @@
 Built your own API to consume with BATTLESHIFT. This project takes the classic tabletop game and converts to a game that can be played in Postman with POST requests.
 
 ## Getting Started
+```
 clone down repo
+```
+```
 bundle
+```
+```
 rake db:create
+```
+```
 rake db:migrate
+```
 
 ### Prerequisites
 
