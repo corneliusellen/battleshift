@@ -4,14 +4,8 @@ Built your own API to consume with BATTLESHIFT. This project takes the classic t
 ## Getting Started
 ```
 clone down repo
-```
-```
 bundle
-```
-```
 rake db:create
-```
-```
 rake db:migrate
 ```
 
