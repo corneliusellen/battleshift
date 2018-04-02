@@ -15,7 +15,6 @@ This project was built with Ruby 2.4.1 & Rails 5.1.5
 Interesting Gem we used for the first time: 
 ```
 gem 'sendgrid-ruby'
-
 ```
 
 ## Running the tests
@@ -28,6 +27,7 @@ https://command-battleshift.herokuapp.com/
 ## Authors
 Evil Genius: 
 * **Josh Mejia** - (https://github.com/jmejia)
+
 Code Mavens and Pivoting Goddesses:
 * **Ellen Cornelius** - (https://github.com/corneliusellen)
 * **Katy Welyczko** - (https://github.com/katyjane8)
