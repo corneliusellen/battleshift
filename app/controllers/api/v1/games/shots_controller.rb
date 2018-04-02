@@ -7,7 +7,7 @@ module Api
           player = current_player
 
           if game.winner.nil?
-            turn_processor = TurnProcessor.new(game, params[:shot][:target], player)
+            turn_processor = TurnProcessor.new(game, params[:target], player)
             turn_processor.run!
             if turn_processor.message == "Invalid coordinates."
               render json: game, message: turn_processor.message, :status => 400
