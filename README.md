@@ -17,12 +17,21 @@ Interesting Gem we used for the first time:
 gem 'sendgrid-ruby'
 ```
 
+## Getting Started
+How to play: 
+Open Postman from your Applications
+Invite a friend to play by registering here: https://command-battleshift.herokuapp.com/
+Make sure that you have both of your emails handy - you can find your friend's API code with the app
+Put your API key in the header param under X-API-KEY
+Put your friend's email in the body param under opponents_email
+Your first endpoint is https://command-battleshift.herokuapp.com/api/v1/games to start
+Here is a comprehensive list of how the game can be played with all endpoints:
+https://github.com/turingschool-examples/battleshift_spec_harness/blob/master/spec/game_play_spec.rb
+
 ## Running the tests
 use RSpec to run the full test suite 
-
-## Deployment
-for your convenience, this app has a Heroku app:
-https://command-battleshift.herokuapp.com/
+full spec harness here:
+https://github.com/turingschool-examples/battleshift_spec_harness
 
 ## Authors
 Evil Genius: 
