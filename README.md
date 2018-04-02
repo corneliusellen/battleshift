@@ -1,24 +1,38 @@
-# README
+# BATTLESHIFT
+Built your own API to consume with BATTLESHIFT. This project takes the classic tabletop game and converts to a game that can be played in Postman with POST requests.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+clone down repo
+bundle
+rake db:create
+rake db:migrate
 
-Things you may want to cover:
+### Prerequisites
 
-* Ruby version
+This project was built with Ruby 2.4.1 & Rails 5.1.5
+Interesting Gem we used for the first time: 
+```
+gem 'sendgrid-ruby'
 
-* System dependencies
+```
 
-* Configuration
+## Running the tests
+use RSpec to run the full test suite 
 
-* Database creation
+## Deployment
+for your convenience, this app has a Heroku app:
+https://command-battleshift.herokuapp.com/
 
-* Database initialization
+## Authors
+Evil Genius: 
+* **Josh Mejia** - (https://github.com/jmejia)
+Code Mavens and Pivoting Goddesses:
+* **Ellen Cornelius** - (https://github.com/corneliusellen)
+* **Katy Welyczko** - (https://github.com/katyjane8)
 
-* How to run the test suite
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
+This project is licensed under the Turing School of Software & Design
 
-* ...
