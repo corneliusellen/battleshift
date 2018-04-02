@@ -74,6 +74,8 @@ describe "Api::V1::Games" do
       params_shot = {target: "C1"}.to_json
       post "/api/v1/games/#{Game.last.id}/shots", params: params_shot, :headers => headers
 
+      # player 1 FINISHES HIM
+      
       headers = { "X-API-KEY" => @user_1.api_key.api_key,
                   "CONTENT-TYPE" => "application/json" }
       params_shot = {target: "C1"}.to_json
@@ -86,6 +88,8 @@ describe "Api::V1::Games" do
       expect(status_space).to eq("Hit")
       expect(result["message"]).to include("Your shot resulted in a Hit. Battleship sunk. Game over.")
       expect(result["winner"]).to eq(@user_1.email)
+
+      # player 2 tries to play again but the game is over
 
       headers = { "X-API-KEY" => @user_2.api_key.api_key,
                   "CONTENT-TYPE" => "application/json" }
