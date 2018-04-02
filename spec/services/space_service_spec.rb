@@ -25,29 +25,17 @@ describe Space do
 
     expect(subject.contents).to eq(ship)
   end
-  #
-  # it "ship can take damage" do
-  #   subject.place("A1", "A3")
-  #   subject.attack!
-  #
-  #   expect(subject.damage).to eq(1)
-  # end
-  #
-  # it "ship can sink" do
-  #   subject.place("A1", "A3")
-  #   subject.attack!
-  #   subject.attack!
-  #   subject.attack!
-  #
-  #   expect(subject.is_sunk?).to be true
-  # end
-  #
-  # it "starts with damage at 0" do
-  #   expect(subject.damage).to eq(0)
-  # end
-  #
-  # it "starts with spaces as nil" do
-  #   expect(subject.start_space).to be nil
-  #   expect(subject.end_space).to be nil
-  # end
+
+  it "can be occupied with contents" do
+    subject.occupy!(ship)
+    subject.occupied?
+
+    expect(subject.contents).not_to be nil
+  end
+
+  it "starts with spaces not attacked" do
+    subject.not_attacked?
+
+    expect(subject.status).to eq("Not Attacked")
+  end
 end
